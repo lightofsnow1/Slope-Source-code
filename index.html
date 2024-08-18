@@ -74,3 +74,54 @@
     <button id="right" class="button">Right</button>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .arrow-button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="button-container">
+    <button class="arrow-button" id="left-arrow">← Left Arrow</button>
+    <button class="arrow-button" id="right-arrow">→ Right Arrow</button>
+</div>
+
+<script>
+    function simulateKeyPress(keyCode) {
+        const event = new KeyboardEvent('keydown', {
+            keyCode: keyCode,
+            which: keyCode,
+            key: String.fromCharCode(keyCode),
+            code: `Arrow${keyCode === 37 ? 'Left' : 'Right'}`,
+            bubbles: true,
+            cancelable: true
+        });
+        document.dispatchEvent(event);
+    }
+
+    document.getElementById('left-arrow').addEventListener('click', function() {
+        simulateKeyPress(37); // Left arrow key code
+    });
+
+    document.getElementById('right-arrow').addEventListener('click', function() {
+        simulateKeyPress(39); // Right arrow key code
+    });
+</script>
+
+</body>
+</html>
+
