@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slope Game with Controls</title>
+    <title>Slope Game with Custom Controls</title>
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="TemplateData/unityloader41.js"></script>
@@ -39,9 +39,10 @@
     </style>
     <script>
         var gameInstance;
+
         function sendUnityMessage(method, message) {
             if (gameInstance && gameInstance.SendMessage) {
-                gameInstance.SendMessage('GameController', method, message);
+                gameInstance.SendMessage('GameObjectName', method, message);
             }
         }
 
@@ -71,7 +72,6 @@
     </div>
     <button id="left" class="button">Left</button>
     <button id="right" class="button">Right</button>
-    <script async src="//static.getclicky.com/101357250.js"></script>
-    <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101357250ns.gif" /></p></noscript>
 </body>
 </html>
+
